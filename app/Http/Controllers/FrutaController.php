@@ -1,17 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Routing\Controller;
 use App\Models\Fruta;
 use Illuminate\Http\Request;
 
 class FrutaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct(){
+        $this->middleware('auth',['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
+    }
     public function index()
     {
-        $frutas = Fruta::paginate(6);
+        $frutas = Fruta::all();
         return view('fruta.index', compact('frutas'));
     }
 
@@ -20,7 +22,7 @@ class FrutaController extends Controller
      */
     public function create()
     {
-        //
+        return view('fruta.create');
     }
 
     /**
@@ -28,7 +30,8 @@ class FrutaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Fruta::create($request->all());
+        return redirect()->route('frutas.index');
     }
 
     /**
@@ -71,6 +74,8 @@ class FrutaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $fruta = Fruta::findOrFail($id);
+        $fruta->delete();
+        return redirect()->route('frutas.index')->with('success', 'fruta eliminado con éxito.');
     }
 }
