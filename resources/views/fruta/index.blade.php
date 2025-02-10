@@ -1,5 +1,5 @@
 @extends('plantilla')
-@include('partials.nav')
+{{-- @include('partials.nav') --}}
 @section('contenido')
     
 

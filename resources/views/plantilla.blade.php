@@ -11,7 +11,7 @@
 </head>
 <body class="bg-gray-100 text-gray-900">
     
-    <nav class="bg-gray-800 text-white py-4">
+    <nav class="bg bg-primary bg-gradient-800 text-white py-4">
         <div class="container mx-auto flex justify-between items-center px-4">
             <a class="text-xl font-bold" href="{{ route('frutas.index') }}">Fruteria</a>
             
@@ -25,8 +25,8 @@
                     </li>
                 @else
                     <li>
-                        <a href="{{ route('signup') }}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Signup</a>
-                        <a href="{{ route('login') }}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Login</a>
+                        <a href="{{ route('signup') }}" class="bg bg-warning 500 hover:bg-blue-600 text-black px-4 py-2 rounded">Signup</a>
+                        <a href="{{ route('login') }}" class="bg bg-warning 500 hover:bg-blue-600 text-black px-4 py-2 rounded">Login</a>
                     </li>
                 @endif
             </ul>
@@ -36,7 +36,7 @@
         @yield('contenido')
     </div>
 
-    <footer class="bg-gray-800 text-white text-center py-4 mt-6">
+    <footer class="bg bg-primary bg-gradient-800 text-white text-center py-4 mt-6">
         <p class="mb-0">Fruteria Emilio</p>
     </footer>
 
