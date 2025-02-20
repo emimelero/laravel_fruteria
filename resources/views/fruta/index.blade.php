@@ -5,12 +5,12 @@
 
     <div class="container mt-5">
 
-        @if (auth()->user())
-            <h4>Bienvenido/a {{ auth()->user()->login }}</h4>
-        @elseif(auth()->user() && auth()->user()->login == 'admin')
+        @if (auth()->user() && auth()->user()->login == 'admin')
             <a href="{{ route('frutas.create') }}" class="btn btn-success btn-sm my-2">
-                <i class="bi bi-plus-circle"></i> Añadir Fruta
+                <i class="bi bi-plus-circle">Añadir Fruta</i> 
             </a>
+        @elseif (auth()->user())
+            <h4>Bienvenido/a {{ auth()->user()->login }}</h4>
         @else
             <h4>No registrado</h4>
         @endif 
